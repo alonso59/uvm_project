@@ -1,5 +1,5 @@
-class ram_port0_scoreboard extends uvm_scoreboard;
-  `uvm_component_utils(ram_port0_scoreboard)
+class ram_port0_scr extends uvm_scoreboard;
+  `uvm_component_utils(ram_port0_scr)
 
   function new(input string name, uvm_component parent);
     super.new(name,parent);
