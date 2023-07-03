@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : German Pinedo / Manuel Hernandez
-    Last update    : 03 Jul 2023 by German Pinedo
+    Last update    : 03 Jul 2023 by Manuel Hernandez
 =============================================================            
 */
 
@@ -12,6 +12,10 @@ class ram_port1_agent extends uvm_agent;
     ram_port1_driver port1_driver;
 	// uvm_sequencer #(ram_port1_sequence_item) port1_sequencer;
 	ram_port1_sequencer port1_sequencer;
+
+	ram_port1_monitor port1_monitor;
+	ram_port1_scb port1_scb;
+	ram_port1_subs port1_subs;
 	
 	// constructor
 	function new(string name, uvm_component parent);
@@ -25,6 +29,11 @@ class ram_port1_agent extends uvm_agent;
 		port1_driver = ram_port1_driver::type_id::create("port1_driver",this);
 		// port1_sequencer = uvm_sequencer #(ram_port1_sequence_item)::type_id::create("port1_sequencer",this);
 		port1_sequencer = ram_port1_sequencer::type_id::create("port1_sequencer",this);
+
+		port1_monitor = ram_port1_monitor::type_id::create("port1_monitor", this);
+		port1_scb = ram_port1_scb::type_id::create("port1_scb", this);
+		port1_subs = ram_port1_subs::type_id::create("port1_subs", this);
+
 	endfunction
 
 	// connect phase
