@@ -1,0 +1,32 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-RUNMODE
+-INCDIR
+../definitions/
+-INCDIR
+../verif/env/
+-INCDIR
+../verif/test/
+-DEFINE
+XCELIUM
+-sv
+-I_INCDIR
+/edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/sv/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-I_INCDIR
+/edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/additions/sv
+-UPDATE
+-CDSLIB
+./xcelium.d/run.lnx8664.20.09.d/cdsrun.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.20.09.d/hdlrun.var
+-work
+worklib
+-UVMNOSINGLESTEP
+-define
+UVM_PLI
+/edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/sv/src/uvm_pkg.sv
+/edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/additions/sv/cdns_uvm_pkg.sv

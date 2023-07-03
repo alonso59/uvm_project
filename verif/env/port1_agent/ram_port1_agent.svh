@@ -1,22 +1,37 @@
+/*
+=============================================================
+    Owners      : German Pinedo / Manuel Hernandez
+    Last update    : 03 Jul 2023 by German Pinedo
+=============================================================            
+*/
+
 class ram_port1_agent extends uvm_agent;
-	`uvm_component_utils(port0_agent)
+	`uvm_component_utils(ram_port1_agent)
 
-	// HANDLERS for driver, sequencer, subscriber, monitor, scroeboard
-
-	// uvm_sequencer #() ;
-
+	// HANDLERS for driver, monitor, scroeboard, subscriber
+    ram_port1_driver port1_driver;
+	// uvm_sequencer #(ram_port1_sequence_item) port1_sequencer;
+	ram_port1_sequencer port1_sequencer;
+	
+	// constructor
 	function new(string name, uvm_component parent);
-		super.new(name,parent);
+		super.new(name, parent);
 	endfunction
 
+	// build phase
 	function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
         // BUILD using factory object of driver, sequencer, subscriber, monitor, scroeboard
+		port1_driver = ram_port1_driver::type_id::create("port1_driver",this);
+		// port1_sequencer = uvm_sequencer #(ram_port1_sequence_item)::type_id::create("port1_sequencer",this);
+		port1_sequencer = ram_port1_sequencer::type_id::create("port1_sequencer",this);
 	endfunction
 
+	// connect phase
 	function void connect_phase(uvm_phase phase);
 		super.connect_phase(phase);
-		// CONNECT using factory UVM driver, sequencer, subscriber, monitor, scroeboard
+		// CONNECT
+		port1_driver.seq_item_port.connect(port1_sequencer.seq_item_export);
 	endfunction
 
 endclass

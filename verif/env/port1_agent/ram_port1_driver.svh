@@ -1,7 +1,7 @@
-class ram_port1_driver extends uvm_driver;
-    `uvm_component_utils(driver)	// register component to factory
+class ram_port1_driver extends uvm_driver #(ram_port1_sequence_item);
+    `uvm_component_utils(ram_port1_driver)	// register component to factory
     
-    virtual ram_port1_intf vif;
+    virtual ram_port1_intf port1_vif;
 
     function new(string name, uvm_component parent);
       super.new(name,parent);
@@ -9,8 +9,7 @@ class ram_port1_driver extends uvm_driver;
 
     function void build_phase(uvm_phase phase);
       super.build_phase(phase);
-      `uvm_info(get_name(), "Build Phase", UVM_NONE);
-      if(!uvm_config_db #(virtual ram_port1_intf)::get(this,"","ram_port1_intf",vif))
+      if(!uvm_config_db #(virtual ram_port1_intf)::get(this,"","ram_port1_intf", port1_vif))
         `uvm_fatal(get_name(),"Failed to get ram_port1_intf")
     endfunction
 

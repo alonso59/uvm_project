@@ -1,0 +1,145 @@
+xrun(64): 20.09-s018: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	20.09-s018: Started on Jul 03, 2023 at 19:09:43 UTC
+xrun
+	-f list.f
+		+incdir+../definitions/
+		../definitions/definitions.sv
+		../rtl/ram.sv
+		../verif/intf/ram_port0_intf.sv
+		../verif/intf/ram_port1_intf.sv
+		+incdir+../verif/env/
+		../verif/env/ram_env_pkg.svh
+		+incdir+../verif/test/
+		../verif/tb/tb.sv
+	-uvmhome CDNS-1.2
+	-uvm
+	-l ./logs/comp.log
+	+define+XCELIUM+
+	+UVM_TESTNAME=ram_base_test
+	+UVM_VERBOSITY=UVM_MEDIUM
+	-access +rwc
+	-timescale 1ns/1ps
+	-sv
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_MEDIUM
+
+Recompiling... reason: file '../verif/tb/tb.sv' is newer than expected.
+	expected: Mon Jul  3 18:46:44 2023
+	actual:   Mon Jul  3 19:09:33 2023
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2
+file: ../verif/tb/tb.sv
+	module worklib.tb:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		ram_env_pkg
+		$unit_0x10ce8493
+		tb
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+        .wmask0(port0_if.wmask0),
+                              |
+xmelab: *W,CUVMPW (../verif/tb/tb.sv,38|30): port sizes differ in port connection(8/4) for the instance(tb) .
+        .addr0(port0_if.addr0),
+                            |
+xmelab: *W,CUVMPW (../verif/tb/tb.sv,39|28): port sizes differ in port connection(9/10) for the instance(tb) .
+        .addr1(port1_if.addr1),
+                            |
+xmelab: *W,CUVMPW (../verif/tb/tb.sv,46|28): port sizes differ in port connection(9/10) for the instance(tb) .
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.uvm_pkg:sv <0x57babe10>
+			streams:  21, words: 15216
+		worklib.uvm_pkg:sv <0x0dc619eb>
+			streams:  48, words: 43343
+		worklib.uvm_pkg:sv <0x3291d673>
+			streams:  19, words: 12930
+		worklib.uvm_pkg:sv <0x774fb932>
+			streams:   7, words:  3099
+		worklib.tb:sv <0x74c0a9ab>
+			streams: 123, words: 166984
+		worklib.\$unit_0x10ce8493 :compilation_unit <0x164219be>
+			streams:   0, words:     0
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                       Instances  Unique
+		Modules:                       2       2
+		Interfaces:                    2       2
+		Verilog packages:              5       5
+		Registers:                 16346   11576
+		Scalar wires:                  5       -
+		Vectored wires:                8       -
+		Named events:                  4      12
+		Initial blocks:              318     162
+		Parallel blocks:              28      29
+		Pseudo assignments:           11      11
+		Assertions:                    3       3
+		Compilation units:             1       1
+		SV Class declarations:       228     344
+		SV Class specializations:    435     435
+		Simulation timescale:        1ps
+	Writing initial simulation snapshot: worklib.tb:sv
+Loading snapshot worklib.tb:sv .................... Done
+SVSEED default: 1
+xmsim: *W,RNDXCELON: A newer version of the SystemVerilog constraint solver is being used which has better support for array-solving, new solve-order mechanism, and seed stability enhancements..
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /edatools/cdnc/installs/XCELIUM2009/tools/xcelium/files/xmsimrc
+xcelium> source /edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> run
+UVM_INFO /edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh(412) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+CDNS-UVM-1.2 (20.09-s018)
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test ram_base_test...
+UVM_INFO /edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_catcher.svh(705) @ 0: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_server.svh(847) @ 0: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    3
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+
+Simulation complete via $finish(1) at time 0 FS + 231
+/edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh:543     $finish;
+xcelium> exit
+TOOL:	xrun(64)	20.09-s018: Exiting on Jul 03, 2023 at 19:09:48 UTC  (total: 00:00:05)

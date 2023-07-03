@@ -1,0 +1,10 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/home/joc/Documents/german/uvm_project/definitions/definitions.sv
+/home/joc/Documents/german/uvm_project/rtl/ram.sv
+/home/joc/Documents/german/uvm_project/verif/intf/ram_port0_intf.sv
+/home/joc/Documents/german/uvm_project/verif/intf/ram_port1_intf.sv
+/home/joc/Documents/german/uvm_project/verif/env/ram_env_pkg.svh
+/home/joc/Documents/german/uvm_project/verif/tb/tb.sv

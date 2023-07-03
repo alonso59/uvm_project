@@ -1,0 +1,19 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-INCDIR
+../definitions/
+-INCDIR
+../verif/env/
+-INCDIR
+../verif/test/
+-DEFINE
+XCELIUM
+-sv
+-I_INCDIR
+/edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/sv/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-I_INCDIR
+/edatools/cdnc/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/additions/sv
