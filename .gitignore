@@ -1,0 +1,4 @@
+work/*
+!work/Makefile
+!work/list.f
+**/*.swp
