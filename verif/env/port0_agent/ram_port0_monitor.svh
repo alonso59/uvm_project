@@ -8,13 +8,19 @@
 class ram_port0_monitor extends uvm_monitor;
   `uvm_component_utils(ramp_port0_monitor)
 
-  virtual port0_intf port0_vif;  //virtual interface
+  virtual ram_port0_intf port0_vif;  //virtual interface
 
   uvm_analysis_port #(ram_port0_sequence_item) ana_port;
 
   function new(input string name, uvm_component parent);
     super.new(name,parent);
     ana_port = new("ana_port", this); //Analisys port constructor.
+  endfunction
+
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+    if(!uvm_config_db #(virtual ram_port0_intf)::get(this,"","ram_port0_intf", port0_vif))
+      `uvm_fatal(get_name(),"Failed to get ram_port0_intf")
   endfunction
 
   virtual task run_phase(uvm_phase phase);
