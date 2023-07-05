@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : Manuel Hernandez
-    Last update    : 03 Jul 2023 by Manuel Hernandez
+    Last update    : 05 Jul 2023 by Manuel Hernandez
 =============================================================            
 */
 
@@ -9,9 +9,16 @@ class ram_port1_scb extends uvm_scoreboard;
 	
 	`uvm_component_utils(ram_port1_scb)
 	
+	uvm_analysis_imp#(ram_port1_sequence_item, ram_port1_scb) scb_analysis_export;
+	
 	function new(input string name, uvm_component parent);
 		super.new(name, parent);
 	endfunction
+	
+	virtual function void write(ram_port1_sequence_item port1_item);
+      	`uvm_info(get_name(), "Received data", UVM_MEDIUM)
+      	port1_item.print(uvm_default_line_printer);
+  	endfunction
 	
 	virtual function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
