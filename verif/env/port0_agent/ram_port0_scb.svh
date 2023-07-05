@@ -20,14 +20,27 @@ class ram_port0_scb extends uvm_scoreboard;
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     ana_export.connect(ana_fifo.analysis_export);
-    `uvm_info(get_name(), "Build Phase", UVM_MEDIUM);
+    `uvm_info(get_name(), "Build Phase", UVM_HIGH);
   endfunction
+
+  virtual function void connect_phase(uvm_phase phase);
+    super.build_phase(phase);
+    ana_export.connect(ana_fifo.analysis_export);
+    `uvm_info(get_name(), "Connect Phase", UVM_HIGH);
+  endfunction
+
   
-  virtual function void write(ram_port0_sequence_item t);
-    /*
-    if(!disable_scoreboard)
-      memory_verify(txb);
-    */
-  endfunction
+  // virtual function void write(ram_port0_sequence_item t);
+  //   /*
+  //   if(!disable_scoreboard)
+  //     memory_verify(txb);
+  //   */
+  // endfunction
+
+    virtual task run_phase(uvm_phase phase);
+    //forever begin
+    //  ana_fifo.get(txn);
+    //end
+  endtask
 
 endclass

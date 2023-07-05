@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : Grecia Montoya / Emanuel Murillo
-    Last update    : 4 Jul 2023 by Emanuel Murillo
+    Last update    : 5 Jul 2023 by Emanuel Murillo
 =============================================================            
 */
 
@@ -31,7 +31,7 @@ class ram_port0_agent extends uvm_agent;
 		super.connect_phase(phase);
 		monitor.ana_port.connect(scb.ana_export);
 		monitor.ana_port.connect(subs.analysis_export);
-		//driver.seq_item_port.connect(sqr.seq_item_export);
+		driver.seq_item_port.connect(sqr.seq_item_export);
 
 
 		/*if(is_active == UVM_ACTIVE) begin
