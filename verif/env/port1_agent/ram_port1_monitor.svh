@@ -1,13 +1,17 @@
 /*
 =============================================================
     Owners      : German Pinedo / Manuel Hernandez
-    Last update    : 03 Jul 2023 by Manuel Hernandez
+    Last update    : 05 Jul 2023 by Manuel Hernandez
 =============================================================            
 */
 
 class ram_port1_monitor extends uvm_monitor;
 
 	`uvm_component_utils(ram_port1_monitor)
+	
+	uvm_analysis_port#(ram_port1_sequence_item) mon_analysis_port;
+	
+	ram_port1_sequence_item port1_item;
 	
 	//virtual vifz1 vifz;
 	
@@ -17,6 +21,7 @@ class ram_port1_monitor extends uvm_monitor;
 	
 	virtual function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
+		mon_analysis_port = new("ram_port1_sequence_item", this);
 		//`uvm_info(get_name(), "Build Phase", UVM_NONE)
 	endfunction
 	
@@ -37,6 +42,8 @@ class ram_port1_monitor extends uvm_monitor;
 	endfunction
 	
 	virtual task run_phase(uvm_phase phase);
+		port1_item = ram_port1_sequence_item::type_id::create("port1_item");
+		mon_analysis_port.write(port1_item);
 		//`uvm_info(get_name(), "Run Phase", UVM_NONE)
 	endtask
 	

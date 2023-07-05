@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : German Pinedo / Manuel Hernandez
-    Last update    : 03 Jul 2023 by Manuel Hernandez
+    Last update    : 05 Jul 2023 by Manuel Hernandez
 =============================================================            
 */
 
@@ -41,6 +41,9 @@ class ram_port1_agent extends uvm_agent;
 		super.connect_phase(phase);
 		// CONNECT
 		port1_driver.seq_item_port.connect(port1_sequencer.seq_item_export);
+		
+		port1_monitor.mon_analysis_port.connect(port1_scb.scb_analysis_export);
+		port1_monitor.mon_analysis_port.connect(port1_subs.subs_analysis_export);
 	endfunction
 
 endclass

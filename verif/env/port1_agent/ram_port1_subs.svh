@@ -1,11 +1,11 @@
 /*
 =============================================================
     Owners      : Manuel Hernandez
-    Last update    : 03 Jul 2023 by Manuel Hernandez
+    Last update    : 05 Jul 2023 by Manuel Hernandez
 =============================================================            
 */
 
-class ram_port1_subs extends uvm_subscriber;
+class ram_port1_subs extends uvm_subscriber#(ram_port1_sequence_item);
 	
 	`uvm_component_utils(ram_port1_subs)
 
@@ -13,8 +13,10 @@ class ram_port1_subs extends uvm_subscriber;
 		super.new(name, parent);
 	endfunction
 	
-	virtual function void write(int t);
+	virtual function void write(ram_port1_sequence_item t);
 	   super.write(t);
+	  `uvm_info(get_name(), "Received data", UVM_MEDIUM)
+      t.print(uvm_default_line_printer);
 	endfunction
 	
 	virtual function void build_phase(uvm_phase phase);
