@@ -43,7 +43,7 @@ class ram_port1_agent extends uvm_agent;
 		port1_driver.seq_item_port.connect(port1_sequencer.seq_item_export);
 		
 		port1_monitor.mon_analysis_port.connect(port1_scb.scb_analysis_export);
-		port1_monitor.mon_analysis_port.connect(port1_subs.subs_analysis_export);
+		port1_monitor.mon_analysis_port.connect(port1_subs.analysis_export);
 	endfunction
 
 endclass

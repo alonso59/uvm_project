@@ -12,6 +12,7 @@ class ram_port0_scb extends uvm_scoreboard;
 	uvm_tlm_analysis_fifo#(ram_port0_sequence_item) ana_fifo;
 
   function new(input string name, uvm_component parent);
+    super.new(name, parent);
 		ana_export = new("ana_export",this);
 		ana_fifo = new("ana_fifo",this);
   endfunction : new
@@ -22,7 +23,7 @@ class ram_port0_scb extends uvm_scoreboard;
     `uvm_info(get_name(), "Build Phase", UVM_MEDIUM);
   endfunction
   
-  virtual function void write(ram_port0_sequence_item txn);
+  virtual function void write(ram_port0_sequence_item t);
     /*
     if(!disable_scoreboard)
       memory_verify(txb);

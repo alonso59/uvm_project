@@ -26,7 +26,7 @@ module tb();
 
 			begin
 				forever begin
-					#(`clk0_period/2);
+					#(`clk1_period/2);
 					clk1 = ~clk1;
 				end
 			end

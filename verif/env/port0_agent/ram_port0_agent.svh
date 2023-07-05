@@ -12,7 +12,7 @@ class ram_port0_agent extends uvm_agent;
 	ram_port0_scb scb;
 	ram_port0_subs subs;
 	ram_port0_driver driver;
-	ram_port0_sequencer sequencer;
+	ram_port0_sequencer sqr;
 
 	function new(string name, uvm_component parent);
 		super.new(name,parent);
@@ -30,7 +30,7 @@ class ram_port0_agent extends uvm_agent;
 	function void connect_phase(uvm_phase phase);
 		super.connect_phase(phase);
 		monitor.ana_port.connect(scb.ana_export);
-		monitor.ana_port.connect(subs.analisys_export);
+		monitor.ana_port.connect(subs.analysis_export);
 		//driver.seq_item_port.connect(sqr.seq_item_export);
 
 

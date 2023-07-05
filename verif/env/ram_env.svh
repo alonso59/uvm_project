@@ -22,6 +22,7 @@ class ram_env extends uvm_env;
       port1_agent = ram_port1_agent::type_id::create("port1_agent",this); // // BUILD using factory object of agent
     endfunction
     
+    // Connect ram_scb monitors port0 and port1
     virtual function void connect_phase(uvm_phase phase);
       super.connect_phase(phase);
       `uvm_info(get_name(), "Connect Phase", UVM_NONE);
@@ -36,4 +37,9 @@ class ram_env extends uvm_env;
       `uvm_info(get_name(), "Report Phase", UVM_NONE)
     endfunction
     
+    function void end_of_elaboration_phase(uvm_phase phase);
+      super.end_of_elaboration_phase(phase);
+      uvm_top.print_topology();
+      //`uvm_info(get_name(), "End of elaboration Phase", UVM_NONE)
+    endfunction
   endclass

@@ -1,12 +1,10 @@
 class ram_port0_driver extends uvm_driver ;
 
   // Virtual Interface
-  virtual mem_if vif;
+  virtual ram_port0_intf vif;
 
   `uvm_component_utils(ram_port0_driver)
     
-
-
   // Constructor
   function new (string name, uvm_component parent);
     super.new(name, parent);
