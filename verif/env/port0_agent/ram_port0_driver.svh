@@ -5,6 +5,7 @@ class ram_port0_driver extends uvm_driver ;
 
   `uvm_component_utils(ram_port0_driver)
     
+
   // Constructor
   function new (string name, uvm_component parent);
     super.new(name, parent);
@@ -24,11 +25,36 @@ class ram_port0_driver extends uvm_driver ;
   virtual task run_phase(uvm_phase phase);
   `uvm_info(get_name(), "Run Phase", UVM_NONE)
 //
+    forever begin
+    seq_item_port.get_next_item(req);
+    
+    drive();
+    seq_item_port.item_done();
+    end
+
   endtask : run_phase
 
   // drive 
   virtual task drive();
- 
+/*
+  req.print();
+      //vif.we0 <= 0;
+      //vif.cs0 <= 0;
+      @(posedge vif.clk0); ///cambiar
+	      vif.addr0 <= req.addr0;
+    if(req.we0) begin
+        vif.we0 <= req.we0;
+        vif.din0 <= req.din0;
+        @(posedge vif.clk0);
+      end
+    if(~req.we0) begin
+        vif.we0 <= req.we0;
+        @(posedge vif.clk);//cambiar
+        vif.we0 <= 0;
+        @(posedge vif.clk);//
+        req.rdata = vif.rdata;
+      end
+ */
   endtask : drive
 
 endclass : ram_port0_driver
