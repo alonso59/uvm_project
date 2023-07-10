@@ -1,7 +1,7 @@
 /*
 =============================================================
-    Owners      : German Pinedo / Manuel Hernandez
-    Last update    : 05 Jul 2023 by Manuel Hernandez
+    Owners      : Manuel Hernandez
+    Last update    : 10 Jul 2023 by Manuel Hernandez
 =============================================================            
 */
 
@@ -21,7 +21,7 @@ class ram_port1_monitor extends uvm_monitor;
 	
 	virtual function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
-		mon_analysis_port = new("ram_port1_sequence_item", this);
+		mon_analysis_port = new("mon_analysis_port", this);
 		//`uvm_info(get_name(), "Build Phase", UVM_NONE)
 	endfunction
 	
