@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : Manuel Hernandez
-    Last update    : 05 Jul 2023 by Manuel Hernandez
+    Last update    : 10 Jul 2023 by Manuel Hernandez
 =============================================================            
 */
 
@@ -9,7 +9,8 @@ class ram_port1_scb extends uvm_scoreboard;
 	
 	`uvm_component_utils(ram_port1_scb)
 	
-	uvm_analysis_imp#(ram_port1_sequence_item, ram_port1_scb) scb_analysis_export;
+	uvm_analysis_imp#(ram_port1_sequence_item) scb_analysis_export;
+	uvm_tlm_analysis_fifo#(ram_port1_sequence_item) analysis_fifo;
 	
 	function new(input string name, uvm_component parent);
 		super.new(name, parent);
@@ -23,11 +24,13 @@ class ram_port1_scb extends uvm_scoreboard;
 	virtual function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
 		scb_analysis_export = new("scb_analysis_export", this);
+		analysis_fifo = new("analysis_fifo", this);
 		//`uvm_info(get_name(), "Build Phase", UVM_NONE)
 	endfunction
 	
 	virtual function void connect_phase(uvm_phase phase);
 		super.connect_phase(phase);
+		analysis_fifo.anlaysis_export.connect(scb_analysis_export);
 		//`uvm_info(get_name(), "Connect Phase", UVM_NONE)
 	endfunction
 	
