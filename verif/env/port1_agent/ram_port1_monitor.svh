@@ -42,8 +42,8 @@ class ram_port1_monitor extends uvm_monitor;
 	endfunction
 	
 	virtual task run_phase(uvm_phase phase);
-		port1_item = ram_port1_sequence_item::type_id::create("port1_item");
-		mon_analysis_port.write(port1_item);
+		//port1_item = ram_port1_sequence_item::type_id::create("port1_item");
+		//mon_analysis_port.write(port1_item);
 		//`uvm_info(get_name(), "Run Phase", UVM_NONE)
 	endtask
 	

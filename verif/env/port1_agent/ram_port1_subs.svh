@@ -14,9 +14,9 @@ class ram_port1_subs extends uvm_subscriber#(ram_port1_sequence_item);
 	endfunction
 	
 	virtual function void write(ram_port1_sequence_item t);
-	   super.write(t);
+		//super.write(t);
 	  `uvm_info(get_name(), "Received data", UVM_MEDIUM)
-      t.print(uvm_default_line_printer);
+    	//t.print(uvm_default_line_printer);
 	endfunction
 	
 	virtual function void build_phase(uvm_phase phase);

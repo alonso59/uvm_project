@@ -17,11 +17,12 @@ class ram_port1_scb extends uvm_scoreboard;
 	
 	virtual function void write(ram_port1_sequence_item port1_item);
       	`uvm_info(get_name(), "Received data", UVM_MEDIUM)
-      	port1_item.print(uvm_default_line_printer);
+      	//port1_item.print(uvm_default_line_printer);
   	endfunction
 	
 	virtual function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
+		scb_analysis_export = new("scb_analysis_export", this);
 		//`uvm_info(get_name(), "Build Phase", UVM_NONE)
 	endfunction
 	
