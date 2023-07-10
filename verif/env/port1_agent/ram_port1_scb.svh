@@ -30,7 +30,7 @@ class ram_port1_scb extends uvm_scoreboard;
 	
 	virtual function void connect_phase(uvm_phase phase);
 		super.connect_phase(phase);
-		analysis_fifo.anlaysis_export.connect(scb_analysis_export);
+		analysis_fifo.analysis_export.connect(scb_analysis_export);
 		//`uvm_info(get_name(), "Connect Phase", UVM_NONE)
 	endfunction
 	
