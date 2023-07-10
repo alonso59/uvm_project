@@ -9,7 +9,7 @@ class ram_port1_scb extends uvm_scoreboard;
 	
 	`uvm_component_utils(ram_port1_scb)
 	
-	uvm_analysis_imp#(ram_port1_sequence_item) scb_analysis_export;
+	uvm_analysis_imp#(ram_port1_sequence_item, ram_port1_scb) scb_analysis_export;
 	uvm_tlm_analysis_fifo#(ram_port1_sequence_item) analysis_fifo;
 	
 	function new(input string name, uvm_component parent);
