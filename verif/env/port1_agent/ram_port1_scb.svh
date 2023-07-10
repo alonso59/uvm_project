@@ -16,10 +16,10 @@ class ram_port1_scb extends uvm_scoreboard;
 		super.new(name, parent);
 	endfunction
 	
-	virtual function void write(ram_port1_sequence_item port1_item);
-      	`uvm_info(get_name(), "Received data", UVM_MEDIUM)
+	//virtual function void write(ram_port1_sequence_item port1_item);
+      	//`uvm_info(get_name(), "Received data", UVM_MEDIUM)
       	//port1_item.print(uvm_default_line_printer);
-  	endfunction
+  	//endfunction
 	
 	virtual function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
