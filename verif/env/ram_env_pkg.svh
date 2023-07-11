@@ -14,7 +14,6 @@ package ram_env_pkg;
     `include "port0_agent/ram_port0_scb.svh"
     `include "port0_agent/ram_port0_subs.svh"
     `include "port0_agent/ram_port0_sequencer.svh"
-    `include "port0_agent/ram_port0_sequence.svh"
     `include "port0_agent/ram_port0_driver.svh"
     `include "port0_agent/ram_port0_agent.svh"
 
@@ -26,6 +25,8 @@ package ram_env_pkg;
     `include "port1_agent/ram_port1_driver.svh"
     `include "port1_agent/ram_port1_agent.svh"
     
+    `include "seq/ram_port0_sequence.svh"
+
 	`include "ram_env.svh"
 
 endpackage
