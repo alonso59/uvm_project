@@ -25,17 +25,33 @@ class ram_port0_driver extends uvm_driver ;
   virtual task run_phase(uvm_phase phase);
   `uvm_info(get_name(), "Run Phase", UVM_NONE)
 //
-    forever begin
-    seq_item_port.get_next_item(req);
-    
-    drive();
-    seq_item_port.item_done();
-    end
+  drive();
 
   endtask : run_phase
 
   // drive 
   virtual task drive();
+    ram_port0_sequence txn;
+    txn = ram_port0_sequence_item::type_id::create("txn");
+    
+    
+  forever begin
+    seq_item_port.get_next_item(txn);
+    @ (posedge vif.clk0)
+    begin 
+      txn.we0; = port0_vif.we0;
+	    txn.cs0; = port0_vif.cs0;
+	    txn.wmask0 = port0_vif.wmask0;
+	    txn.addr0 = port0_vif.addr0;
+	    txn.din0 = port0_vif.din0;
+	    txn.dout0 = port0_vif.dout0; 
+    
+    end 
+    seq_item_port.item_done();
+
+  end
+ 
+
 /*
   req.print();
       //vif.we0 <= 0;

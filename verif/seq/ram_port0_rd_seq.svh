@@ -6,7 +6,7 @@
 */
 
 //WRITE SEQUENCE
-class mem_wr_seq extends uvm_sequence;
+class mem_wr_seq extends ram_port0_sequence;
   
   `uvm_object_utils(mem_wr_seq)
    

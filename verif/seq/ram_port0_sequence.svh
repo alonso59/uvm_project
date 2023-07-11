@@ -12,14 +12,15 @@ class ram_port0_sequence extends uvm_sequence;
 
 
     virtual task body();
-
-    req = ram_port0_sequence_item::type_id::create("req");
-    wait_for_grant();
-    req.randomize();
-    send_request(req);
-    wait_for_item_done();
+    ram_port0_sequence txn;
+    start_item(txn);
+    txn = ram_port0_sequence_item::type_id::create("txn");
+    txn.randomize();
+    finish_item(txn);
     
     endtask 
+      
+ 
 
   
 endclass:ram_port0_sequence
