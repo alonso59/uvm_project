@@ -1,4 +1,4 @@
-class ram_port0_sequencer extends uvm_sequencer;
+class ram_port0_sequencer extends uvm_sequencer#(ram_port0_sequence_item);
 
   `uvm_component_utils(ram_port0_sequencer) 
 
