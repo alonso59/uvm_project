@@ -11,7 +11,7 @@ class ram_port0_sequence extends uvm_sequence;
   endfunction
 
 
-    virtual task body();
+    virtual task void body();
       ram_port0_sequence txn;
       start_item(txn);
       txn = ram_port0_sequence::type_id::create("txn");
