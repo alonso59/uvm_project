@@ -23,7 +23,7 @@ class ram_port0_scb extends uvm_scoreboard;
   endfunction
 
   virtual function void connect_phase(uvm_phase phase);
-    super.build_phase(phase);
+    super.connect_phase(phase);
     ana_export.connect(ana_fifo.analysis_export);
     `uvm_info(get_name(), "Connect Phase", UVM_HIGH);
   endfunction
