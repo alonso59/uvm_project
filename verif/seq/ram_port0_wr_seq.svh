@@ -17,7 +17,7 @@ class mem_wr_seq extends ram_port0_sequence;
   
   virtual task body();
     ram_port0_sequence_item txn;
-    task body();
+   
     txn=ram_port0_sequence_item::type_id::create("txn");
     start_item(txn);
     txn.we0=1;
