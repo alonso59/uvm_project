@@ -1,5 +1,5 @@
 
-class ram_port0_driver extends uvm_driver ;
+class ram_port0_driver extends uvm_driver #(ram_port0_sequence_item);
 
   // Virtual Interface
   virtual ram_port0_intf vif;
@@ -34,8 +34,8 @@ class ram_port0_driver extends uvm_driver ;
 
   // drive 
   virtual task drive();
-    ram_port0_sequence txn;
-    txn = ram_port0_sequence::type_id::create("txn");
+    ram_port0_sequence_item txn;
+    txn = ram_port0_sequence_item::type_id::create("txn");
     
     
   forever begin

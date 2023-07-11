@@ -1,6 +1,6 @@
 //Sequence generates the stimulus and sends to driver via sequencer
 
-class ram_port0_sequence extends uvm_sequence;
+class ram_port0_sequence extends uvm_sequence #(ram_port0_sequence_item);
   
   `uvm_sequence_utils(ram_port0_sequence,ram_port0_sequencer)
   
