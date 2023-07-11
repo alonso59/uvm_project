@@ -19,8 +19,8 @@ class ram_port0_monitor extends uvm_monitor;
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db #(virtual ram_port0_intf)::get(this,"","ram_port0_intf", port0_vif))
-      `uvm_fatal(get_name(),"Failed to get ram_port0_intf")
+    if(!uvm_config_db #(virtual ram_port0_intf)::get(this,"","port0_vif", port0_vif))
+      `uvm_fatal(get_name(),"Failed to get port0_vif")
   endfunction
 
   virtual task run_phase(uvm_phase phase);

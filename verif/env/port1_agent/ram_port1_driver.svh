@@ -16,7 +16,7 @@ class ram_port1_driver extends uvm_driver #(ram_port1_sequence_item);
 
     function void build_phase(uvm_phase phase);
       super.build_phase(phase);
-      if(!uvm_config_db #(virtual ram_port1_intf)::get(this,"","ram_port1_intf", port1_vif))
+      if(!uvm_config_db #(virtual ram_port1_intf)::get(this,"","port1_vif", port1_vif))
         `uvm_fatal(get_name(),"Failed to get ram_port1_intf")
     endfunction
 
