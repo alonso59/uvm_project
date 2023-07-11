@@ -40,8 +40,8 @@ class ram_port0_driver extends uvm_driver ;
     seq_item_port.get_next_item(txn);
     @ (posedge vif.clk0)
     begin 
-      txn.we0; = port0_vif.we0;
-	    txn.cs0; = port0_vif.cs0;
+      txn.we0 = port0_vif.we0;
+	    txn.cs0 = port0_vif.cs0;
 	    txn.wmask0 = port0_vif.wmask0;
 	    txn.addr0 = port0_vif.addr0;
 	    txn.din0 = port0_vif.din0;

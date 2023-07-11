@@ -24,7 +24,6 @@ class mem_wr_seq extends ram_port0_sequence;
     txn.cs=0;
     finish_item(txn);
   endtask:body
-  endtask
 
 
   /*
