@@ -7,7 +7,7 @@ class ram_port0_sequence_item extends uvm_sequence_item;
   rand bit [3:0] wmask0;
   rand bit [`ADDR_WIDTH-1:0] addr0;
   rand logic [`DATA_WIDTH-1:0] din0;
-  //rand bit [`DATA_WIDTH-1:0] dout1;
+  rand bit [`DATA_WIDTH-1:0] dout0;
   
 
 
@@ -17,8 +17,8 @@ class ram_port0_sequence_item extends uvm_sequence_item;
     `uvm_field_int(cs0,UVM_ALL_ON)
     `uvm_field_int(we0,UVM_ALL_ON)
     `uvm_field_int(wmask0,UVM_ALL_ON)
-  `uvm_field_int(din0,UVM_ALL_ON)
-    //`uvm_field_int(dout0,UVM_ALL_ON)
+   `uvm_field_int(din0,UVM_ALL_ON)
+    `uvm_field_int(dout0,UVM_ALL_ON)
 
   `uvm_object_utils_end
   
