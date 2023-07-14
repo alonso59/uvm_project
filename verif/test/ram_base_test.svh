@@ -10,14 +10,18 @@ import uvm_pkg::*;
 
 class ram_base_test extends uvm_test;
 	`uvm_component_utils(ram_base_test)
-
+    ram_env ram_env_i; // Env handler
 	function new(string name, uvm_component parent);
 		super.new(name, parent);
 	endfunction
 	
+    function void build_phase(uvm_phase phase);
+		super.build_phase(phase);
+		ram_env_i = ram_env::type_id::create("ram_env_i",this);
+	endfunction
+
 	function void end_of_elaboration_phase(uvm_phase phase);
       super.end_of_elaboration_phase(phase);
       uvm_top.print_topology();
-      //`uvm_info(get_name(), "End of elaboration Phase", UVM_NONE)
     endfunction
 endclass

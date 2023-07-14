@@ -61,6 +61,7 @@ module tb();
 
     initial begin
         run_test();
+        //uvm_top.print_topology();
     end
 
 endmodule

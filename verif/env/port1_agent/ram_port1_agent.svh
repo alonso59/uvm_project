@@ -10,7 +10,6 @@ class ram_port1_agent extends uvm_agent;
 
 	// HANDLERS for driver, monitor, scroeboard, subscriber
     ram_port1_driver port1_driver;
-	// uvm_sequencer #(ram_port1_sequence_item) port1_sequencer;
 	ram_port1_sequencer port1_sequencer;
 
 	ram_port1_monitor port1_monitor;
