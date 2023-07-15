@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : Manuel Hernandez
-    Last update    : 10 Jul 2023 by Manuel Hernandez
+    Last update    : 15 Jul 2023 by Manuel Hernandez
 =============================================================            
 */
 
@@ -13,7 +13,7 @@ class ram_port1_monitor extends uvm_monitor;
 	
 	ram_port1_sequence_item port1_item;
 	
-	//virtual vifz1 vifz;
+	virtual ram_port1_intf port1_vif;
 	
 	function new(input string name, uvm_component parent);
 		super.new(name, parent);
@@ -22,6 +22,8 @@ class ram_port1_monitor extends uvm_monitor;
 	virtual function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
 		mon_analysis_port = new("mon_analysis_port", this);
+		if(!uvm_config_db#(virtual ram_port1_intf)::get(this, "", "port1_vif", port1_vif))
+			`uvm_fatal(get_name(), "Failed to get ram_port1_intf")
 		//`uvm_info(get_name(), "Build Phase", UVM_NONE)
 	endfunction
 	

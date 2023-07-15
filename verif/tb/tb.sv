@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : Everyone (Grecia, Manuel, Emmanuel, German)
-    Last update    : 03 Jul 2023 by German
+    Last update    : 15 Jul 2023 by Manuel
 =============================================================            
 */
 
@@ -39,7 +39,7 @@ module tb();
 
     ram_dual_port DUT(
         // Port 0, R/W
-        .clk0(port0_if.clk0),
+        .clk0(clk0),
         .cs0(port0_if.cs0),
         .we0(port0_if.we0),
         .wmask0(port0_if.wmask0),
@@ -48,7 +48,7 @@ module tb();
         .dout0(port0_if.dout0),
 
         // Port 1, R-only
-        .clk1(port1_if.clk1),
+        .clk1(clk1),
         .cs1(port1_if.cs1),
         .addr1(port1_if.addr1),
         .dout1(port1_if.dout1)
