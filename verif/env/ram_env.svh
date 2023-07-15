@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : Everyone (Grecia, Manuel, Emanuel, German)
-    Last update    : 04 Jul 2023 by Emanuel
+    Last update    : 15 Jul 2023 by Manuel
 =============================================================            
 */
 
@@ -39,7 +39,7 @@ class ram_env extends uvm_env;
     
     function void end_of_elaboration_phase(uvm_phase phase);
       super.end_of_elaboration_phase(phase);
-      uvm_top.print_topology();
+      //uvm_top.print_topology();
       //`uvm_info(get_name(), "End of elaboration Phase", UVM_NONE)
     endfunction
   endclass
