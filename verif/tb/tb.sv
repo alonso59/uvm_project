@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : Everyone (Grecia, Manuel, Emmanuel, German)
-    Last update    : 15 Jul 2023 by Manuel
+    Last update    : 17 Jul 2023 by Manuel
 =============================================================            
 */
 
@@ -55,8 +55,8 @@ module tb();
     );
     
     initial begin
-        uvm_config_db #(virtual ram_port0_intf)::set(null, "*", "port0_vif", port0_if);
-        uvm_config_db #(virtual ram_port1_intf)::set(null, "*", "port1_vif", port1_if);
+        uvm_config_db #(virtual ram_port0_intf)::set(null, "uvm_test_top.ram_env_i.port0_agent.*", "port0_vif", port0_if);
+        uvm_config_db #(virtual ram_port1_intf)::set(null, "uvm_test_top.ram_env_i.port1_agent.*", "port1_vif", port1_if);
     end
 
     initial begin
