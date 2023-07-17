@@ -1,7 +1,7 @@
 /*
 =============================================================
-    Owner      : German Pinedo
-    Last update    : 03 Jul 2023
+    Owner      : Emanuel
+    Last update    : 17 Jul 2023
 =============================================================            
 */
 
@@ -25,9 +25,32 @@ class ram_port1_driver extends uvm_driver #(ram_port1_sequence_item);
       `uvm_info(get_name(), "Connect Phase", UVM_NONE);
     endfunction
 
-    virtual task run_phase(uvm_phase phase);
-      `uvm_info(get_name(), "Run Phase", UVM_NONE);
-    endtask
+   virtual task run_phase(uvm_phase phase);
+   `uvm_info(get_name(), "Run Phase", UVM_NONE)
+    //
+    drive();
+
+  endtask : run_phase
+
+  // drive 
+  virtual task drive();
+    ram_port1_sequence_item txn;
+    txn = ram_port1_sequence_item::type_id::create("txn");
+    
+    
+    forever begin
+      seq_item_port.get_next_item(txn);
+      @ (posedge vif.clk1)
+      begin 
+        vif.cs1 <= txn.cs1;
+        vif.addr1<= txn.addr1;
+        vif.dout1 <= txn.dout1; 
+      
+      end 
+      seq_item_port.item_done();
+    end
+
+   endtask : drive
       
     virtual function void report_phase(uvm_phase phase);
       super.report_phase(phase);
