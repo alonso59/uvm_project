@@ -40,11 +40,11 @@ class ram_port1_driver extends uvm_driver #(ram_port1_sequence_item);
     
     forever begin
       seq_item_port.get_next_item(txn);
-      @ (posedge vif.clk1)
+      @ (posedge port1_vif.clk1)
       begin 
-        vif.cs1 <= txn.cs1;
-        vif.addr1<= txn.addr1;
-        vif.dout1 <= txn.dout1; 
+        port1_vif.cs1 <= txn.cs1;
+        port1_vif.addr1<= txn.addr1;
+        port1_vif.dout1 <= txn.dout1; 
       
       end 
       seq_item_port.item_done();
