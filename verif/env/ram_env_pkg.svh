@@ -26,6 +26,7 @@ package ram_env_pkg;
     `include "port1_agent/ram_port1_agent.svh"
     
     `include "../seq/ram_port0_sequence.svh"
+    `include "../seq/ram_port1_sequence.svh"
 
 	`include "ram_env.svh"
 
