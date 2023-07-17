@@ -24,8 +24,8 @@ class ram_port0_monitor extends uvm_monitor;
   endfunction
 
   virtual task run_phase(uvm_phase phase);
-    `uvm_info(get_name(), "Run Phase", UVM_MEDIUM)
     ram_port0_sequence_item txn;
+    `uvm_info(get_name(), "Run Phase", UVM_MEDIUM)
     txn = ram_port0_sequence_item::type_id::create("txn");
 
     forever begin
