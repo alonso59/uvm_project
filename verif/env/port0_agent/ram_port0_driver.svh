@@ -42,12 +42,12 @@ class ram_port0_driver extends uvm_driver #(ram_port0_sequence_item);
     seq_item_port.get_next_item(txn);
     @ (posedge vif.clk0)
     begin 
-      txn.we0 = vif.we0;
-	    txn.cs0 = vif.cs0;
-	    txn.wmask0 = vif.wmask0;
-	    txn.addr0 = vif.addr0;
-	    txn.din0 = vif.din0;
-	    txn.dout0 = vif.dout0; 
+      vif.we0 <= txn.we0;
+	    vif.cs0 <= txn.cs0;
+	    vif.wmask0 <= txn.wmask0;
+	    vif.addr0 <= txn.addr0;
+	    vif.din0 <= txn.din0;
+	    vif.dout0 <= txn.dout0; 
     
     end 
     seq_item_port.item_done();
