@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : Manuel Hernandez
-    Last update    : 15 Jul 2023 by Manuel Hernandez
+    Last update    : 17 Jul 2023 by Manuel Hernandez
 =============================================================            
 */
 
@@ -44,9 +44,18 @@ class ram_port1_monitor extends uvm_monitor;
 	endfunction
 	
 	virtual task run_phase(uvm_phase phase);
-		//port1_item = ram_port1_sequence_item::type_id::create("port1_item");
-		//mon_analysis_port.write(port1_item);
-		//`uvm_info(get_name(), "Run Phase", UVM_NONE)
+		ram_port1_sequence_item txn;
+    	`uvm_info(get_name(), "Run Phase", UVM_MEDIUM)
+    	txn = ram_port1_sequence_item::type_id::create("txn");
+
+		forever begin
+			@(posedge port1_vif.clk1)begin
+				txn.cs1 <= port1_vif.cs1;
+				txn.addr1 <= port1_vif.addr1;
+				txn.dout1 <= port1_vif.dout1; 
+			end
+			mon_analysis_port.write(txn);    // write to analisys port
+		end
 	endtask
 	
 	virtual function void extract_phase(uvm_phase phase);
