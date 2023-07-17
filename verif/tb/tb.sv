@@ -40,8 +40,8 @@ module tb();
     ram_dual_port DUT(
         // Port 0, R/W
         .clk0(clk0),
-        .cs0(port0_if.cs0),
-        .we0(port0_if.we0),
+        .csb0(port0_if.csb0),
+        .web0(port0_if.web0),
         .wmask0(port0_if.wmask0),
         .addr0(port0_if.addr0),
         .din0(port0_if.din0),
@@ -49,7 +49,7 @@ module tb();
 
         // Port 1, R-only
         .clk1(clk1),
-        .cs1(port1_if.cs1),
+        .csb1(port1_if.csb1),
         .addr1(port1_if.addr1),
         .dout1(port1_if.dout1)
     );
