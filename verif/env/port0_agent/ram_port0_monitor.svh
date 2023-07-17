@@ -31,8 +31,8 @@ class ram_port0_monitor extends uvm_monitor;
     forever begin
       @(posedge port0_vif.clk0)
       begin
-        txn.we0 <= port0_vif.we0;
-        txn.cs0 <= port0_vif.cs0;
+        txn.web0 <= port0_vif.web0;
+        txn.csb0 <= port0_vif.csb0;
         txn.wmask0 <= port0_vif.wmask0;
         txn.addr0 <= port0_vif.addr0;
         txn.din0 <= port0_vif.din0;

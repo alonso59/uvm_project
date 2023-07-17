@@ -50,7 +50,7 @@ class ram_port1_monitor extends uvm_monitor;
 
 		forever begin
 			@(posedge port1_vif.clk1)begin
-				txn.cs1 <= port1_vif.cs1;
+				txn.csb1 <= port1_vif.csb1;
 				txn.addr1 <= port1_vif.addr1;
 				txn.dout1 <= port1_vif.dout1; 
 			end
