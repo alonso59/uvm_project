@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : Everyone (Grecia, Manuel, Emanuel, German)
-    Last update    : 15 Jul 2023 by Manuel
+    Last update    : 17 Jul 2023 by Manuel
 =============================================================            
 */
 
@@ -17,7 +17,7 @@ class ram_env extends uvm_env;
     
     virtual function void build_phase(uvm_phase phase);
       super.build_phase(phase);
-      `uvm_info(get_name(), "Build Phase", UVM_NONE)
+      `uvm_info(get_full_name(), "Build Phase", UVM_NONE)
       port0_agent = ram_port0_agent::type_id::create("port0_agent",this); // // BUILD using factory object of agent
       port1_agent = ram_port1_agent::type_id::create("port1_agent",this); // // BUILD using factory object of agent
     endfunction
