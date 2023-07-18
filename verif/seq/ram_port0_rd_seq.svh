@@ -6,30 +6,27 @@
 */
 
 //WRITE SEQUENCE
-class mem_wr_seq extends ram_port0_sequence;
+class ram_port0_rd_seq extends ram_port0_sequence;
   
-  `uvm_object_utils(mem_wr_seq)
+  `uvm_object_utils(ram_port0_rd_seq)
    
   //Constructor
-  function new(string name = "mem_wr_seq");
+  function new(string name = "ram_port0_rd_seq");
     super.new(name);
   endfunction
   
-  virtual task body();
-    `uvm_do_with(req,{req.we0 == 0;})
-    `uvm_do_with(req,{req.cs0 == 0;})
-  endtask
+  task body();
+    txn=ram_port0_sequence_item::type_id::create("txn");
+    std::randomize(txn) with {web0 == 1; csb0 == 0;}; /////
+    start_item(txn);
+    finish_item(txn);
+  endtask:body
   
 endclass
 
-/*
-  task body();
-    txn=ram_port0_sequence_item::type_id::create("txn");
-    start_item(txn);
-    txn.we0=0;
-    txn.cs=0;
-    finish_item(txn);
-  endtask:body
+  // virtual task body();
+  //   `uvm_do_with(req,{req.we0 == 0;})
+  //   `uvm_do_with(req,{req.cs0 == 0;})
+  // endtask
 
 
-  */

@@ -6,12 +6,12 @@
 */
 
 //WRITE SEQUENCE
-class mem_wr_seq extends ram_port0_sequence;
+class ram_port0_wr_seq extends ram_port0_sequence;
   
-  `uvm_object_utils(mem_wr_seq)
+  `uvm_object_utils(ram_port0_wr_seq)
    
   //Constructor
-  function new(string name = "mem_wr_seq");
+  function new(string name = "ram_port0_wr_seq");
     super.new(name);
   endfunction
   
@@ -20,8 +20,8 @@ class mem_wr_seq extends ram_port0_sequence;
    
     txn=ram_port0_sequence_item::type_id::create("txn");
     start_item(txn);
-    txn.we0=1;
-    txn.cs=0;
+    txn.web0=0;
+    txn.csb0=0;
     finish_item(txn);
   endtask:body
 
