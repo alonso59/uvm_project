@@ -10,3 +10,5 @@ compile_switches_uvm = -f list.f -uvmhome CDNS-1.2 -uvm -l ${logs}/comp.log +def
 sim_uvm:
 	xrun ${compile_switches_uvm}
 
+simvision:
+	simvision shm_db

@@ -16,7 +16,7 @@ class ram_test_seq_base_port0 extends ram_base_test;
     function new(string name, uvm_component parent);
 		super.new(name, parent);
 	endfunction
-	
+
     virtual task run_phase(uvm_phase phase);
         seq0 = ram_port0_sequence::type_id::create("seq0");
         phase.raise_objection(this);

@@ -10,11 +10,17 @@ import ram_env_pkg::*;
 `include "uvm_macros.svh"
 `include "definitions.sv"
 `include "ram_base_test.svh"
+`include "ram_test_seq_base_port0.svh"
 // pkg for cadence
 module tb();
 
     bit clk0, clk1;
 
+    initial begin
+        $shm_open("shm_db");
+        $shm_probe("ASMTR");
+    end
+    
 	initial begin
 		fork
 			begin
