@@ -16,9 +16,9 @@ class ram_port1_rd_seq extends ram_port1_base_seq;
     super.new(name);
   endfunction
   
-  rand int N;
 
   task body();
+    rand int N;
     std::randomize(N) with {N < 1; N > 100;};
     repeat(N) begin
         req = ram_port1_sequence_item::type_id::create("req");

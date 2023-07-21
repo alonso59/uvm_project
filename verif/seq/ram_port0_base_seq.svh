@@ -16,9 +16,9 @@ class ram_port0_base_seq extends uvm_sequence #(ram_port0_sequence_item);
     super.new(name);
   endfunction
 
-  rand int N;
 
   virtual task body();
+    rand int N;
     std::randomize(N) with {N < 1; N > 100;};
     repeat(N) begin
       req = ram_port0_sequence_item::type_id::create("req");
