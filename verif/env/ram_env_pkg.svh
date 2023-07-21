@@ -25,8 +25,12 @@ package ram_env_pkg;
     `include "port1_agent/ram_port1_driver.svh"
     `include "port1_agent/ram_port1_agent.svh"
     
-    `include "../seq/ram_port0_sequence.svh"
-    `include "../seq/ram_port1_sequence.svh"
+    `include "../seq/ram_port0_base_seq.svh"
+    `include "../seq/ram_port1_base_seq.svh"
+
+    `include "../seq/ram_port0_rd_seq.svh"
+    `include "../seq/ram_port0_wr_seq.svh"
+    `include "../seq/ram_port1_rd_seq.svh"
 
 	`include "ram_env.svh"
 
