@@ -6,28 +6,26 @@
 */
 
 //WRITE SEQUENCE
-class ram_port0_rd_seq extends ram_port0_base_seq;
+class ram_port1_rd_seq extends ram_port1_base_seq;
   
-  `uvm_object_utils(ram_port0_rd_seq)
+  `uvm_object_utils(ram_port1_rd_seq)
+
    
   //Constructor
-  function new(string name = "ram_port0_rd_seq");
+  function new(string name = "ram_port1_rd_seq");
     super.new(name);
   endfunction
-
-  rand int N;
   
+  rand int N;
+
   task body();
     std::randomize(N) with {N < 1; N > 100;};
     repeat(N) begin
-      req=ram_port0_sequence_item::type_id::create("req");
-      std::randomize(req) with {web0 == 1; csb0 == 0;}; 
-      start_item(req);
-      req.print(uvm_default_line_printer);
-      finish_item(req);
+        req = ram_port1_sequence_item::type_id::create("req");
+        std::randomize(req) with {csb1 == 1;}; 
+        start_item(req);
+        finish_item(req);
     end
   endtask:body
   
 endclass
-
-

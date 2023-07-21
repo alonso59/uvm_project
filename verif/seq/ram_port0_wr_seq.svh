@@ -1,12 +1,12 @@
 /*
 =============================================================
     Owners      : Grecia Montoya 
-    Last update    : 11 Jul 2023 by Grecia Montoya 
+    Last update    : 21 Jul 2023 by Grecia Montoya 
 =============================================================            
 */
 
 //WRITE SEQUENCE
-class ram_port0_wr_seq extends ram_port0_sequence;
+class ram_port0_wr_seq extends ram_port0_base_seq;
   
   `uvm_object_utils(ram_port0_wr_seq)
    
@@ -14,15 +14,18 @@ class ram_port0_wr_seq extends ram_port0_sequence;
   function new(string name = "ram_port0_wr_seq");
     super.new(name);
   endfunction
+
+  rand int N;
   
   virtual task body();
-    ram_port0_sequence_item txn;
-   
-    txn=ram_port0_sequence_item::type_id::create("txn");
-    start_item(txn);
-    txn.web0=0;
-    txn.csb0=0;
-    finish_item(txn);
+    std::randomize(N) with {N < 1; N > 100;};
+    repeat(N) begin
+      req=ram_port0_sequence_item::type_id::create("req");
+      std::randomize(req) with {web0 == 0; csb0 == 0;}; 
+      start_item(req);
+      req.print(uvm_default_line_printer);
+      finish_item(req);
+    end
   endtask:body
 
 
