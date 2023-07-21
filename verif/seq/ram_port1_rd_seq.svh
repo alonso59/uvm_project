@@ -22,7 +22,7 @@ class ram_port1_rd_seq extends ram_port1_base_seq;
     // std::randomize(N) with {N < 1; N > 100;};
     repeat(15) begin
         req = ram_port1_sequence_item::type_id::create("req");
-        std::randomize(req) with {csb1 == 1;}; 
+        req.randomize() with {csb1 == 1;}; 
         start_item(req);
         finish_item(req);
     end

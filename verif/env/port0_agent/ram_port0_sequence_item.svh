@@ -7,7 +7,7 @@ class ram_port0_sequence_item extends uvm_sequence_item;
   rand bit [3:0] wmask0;
   rand bit [`ADDR_WIDTH-1:0] addr0;
   rand logic [`DATA_WIDTH-1:0] din0;
-  rand bit [`DATA_WIDTH-1:0] dout0;
+  bit [`DATA_WIDTH-1:0] dout0;
   
 
 
