@@ -24,6 +24,7 @@ class ram_port1_rd_seq extends ram_port1_base_seq;
         req = ram_port1_sequence_item::type_id::create("req");
         req.randomize() with {csb1 == 1;}; 
         start_item(req);
+        req.print(uvm_default_line_printer);
         finish_item(req);
     end
   endtask:body

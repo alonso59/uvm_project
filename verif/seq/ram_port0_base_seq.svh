@@ -24,6 +24,7 @@ class ram_port0_base_seq extends uvm_sequence #(ram_port0_sequence_item);
       req = ram_port0_sequence_item::type_id::create("req");
       req.randomize();
       start_item(req);
+      req.print(uvm_default_line_printer);
       finish_item(req);
     end
   endtask 
