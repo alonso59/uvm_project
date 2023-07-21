@@ -1,7 +1,7 @@
 /*
 =============================================================
     Owners      : Everyone (Grecia, Manuel, Emmanuel, German)
-    Last update    : 20 Jul 2023 by Emanuel
+    Last update    : 21 Jul 2023 by Emanuel
 =============================================================            
 */
 
@@ -9,7 +9,7 @@
 
 class ram_port0_base_seq extends uvm_sequence #(ram_port0_sequence_item);
   
-  `uvm_object_utils(ram_port0_sequence)//cambiar sin utilizar los utils macros
+  `uvm_object_utils(ram_port0_base_seq)//cambiar sin utilizar los utils macros
   
   //Constructor
   function new(string name = "ram_port0_base_seq");
