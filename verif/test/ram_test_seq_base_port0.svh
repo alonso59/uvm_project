@@ -23,13 +23,13 @@ class ram_test_seq_base_port0 extends ram_base_test;
         #1us;
         repeat(100)
             begin
-                #500ns
+                #500ns;
                 seq0_wr = ram_port0_wr_seq::type_id::create("seq0_wr");
                 seq0_wr.start(ram_env_i.port0_agent.sqr);
-                #500ns
+                #500ns;
                 seq0_rd = ram_port0_rd_seq::type_id::create("seq0_rd");
                 seq0_rd.start(ram_env_i.port0_agent.sqr);
-                #500ns
+                #500ns;
             end
         #1us;
         phase.drop_objection(this);
