@@ -17,7 +17,7 @@ class ram_base_test extends uvm_test;
 	
     function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
-	 	`uvm_info(get_name(),"Hello from base test build phase!")
+	 	`uvm_info(get_name(),"Hello from base test build phase",UVM_NONE)
 		ram_env_i = ram_env::type_id::create("ram_env_i",this);
 	endfunction
 
