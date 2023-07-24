@@ -1,4 +1,4 @@
-testname = ram_base_test
+testname = ram_test_seq_base_port0
 logs 	= ./logs
 defines = XCELIUM
 verb 	= UVM_MEDIUM
