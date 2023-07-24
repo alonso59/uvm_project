@@ -11,18 +11,26 @@ import uvm_pkg::*;
 class ram_test_seq_base_port0 extends ram_base_test;
 	`uvm_component_utils(ram_test_seq_base_port0)
 
-    ram_port0_base_seq seq0;
+    ram_port0_wr_seq seq0_wr;
+    ram_port0_rd_seq seq0_rd;
 
     function new(string name, uvm_component parent);
 		super.new(name, parent);
 	endfunction
 
     virtual task run_phase(uvm_phase phase);
-        seq0 = ram_port0_base_seq::type_id::create("seq0");
         phase.raise_objection(this);
-        #500ns
-        seq0.start(ram_env_i.port0_agent.sqr);
-        #500ns
+        #1us;
+        repeat(100)
+            begin
+                #500ns
+                seq0_wr = ram_port0_wr_seq::type_id::create("seq0_wr");
+                seq0_wr.start(ram_env_i.port0_agent.sqr);
+                #500ns
+                seq0_rd = ram_port0_rd_seq::type_id::create("seq0_rd");
+                seq0_rd.start(ram_env_i.port0_agent.sqr);
+            end
+        #1us;
         phase.drop_objection(this);
     endtask 
 

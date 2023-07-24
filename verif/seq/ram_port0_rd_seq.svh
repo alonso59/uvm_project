@@ -16,16 +16,12 @@ class ram_port0_rd_seq extends ram_port0_base_seq;
   endfunction
 
   
-  task body();
-    // rand int N;
-    // std::randomize(N) with {N < 1; N > 100;};
-    repeat(15) begin
+  virtual task body();
       req=ram_port0_sequence_item::type_id::create("req");
       req.randomize() with {web0 == 1; csb0 == 0;}; 
       start_item(req);
       req.print(uvm_default_line_printer);
       finish_item(req);
-    end
   endtask:body
   
 endclass
