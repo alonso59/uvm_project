@@ -29,6 +29,9 @@ class ram_test_seq_base_port0 extends ram_base_test;
                 #500ns
                 seq0_rd = ram_port0_rd_seq::type_id::create("seq0_rd");
                 seq0_rd.start(ram_env_i.port0_agent.sqr);
+                #500ns
+                `uvm_info(get_name(),$sformatf("addr0: %0h, "),seq0_wr.addr0,)
+
             end
         #1us;
         phase.drop_objection(this);

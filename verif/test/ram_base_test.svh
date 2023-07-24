@@ -17,6 +17,7 @@ class ram_base_test extends uvm_test;
 	
     function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
+	 	`uvm_info(get_name(),"Hello from base test build phase!")
 		ram_env_i = ram_env::type_id::create("ram_env_i",this);
 	endfunction
 
@@ -24,4 +25,6 @@ class ram_base_test extends uvm_test;
       super.end_of_elaboration_phase(phase);
       uvm_top.print_topology();
     endfunction
+
+	
 endclass
