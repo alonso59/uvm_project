@@ -1,7 +1,7 @@
 testname = ram_test_seq_base_port0
 logs 	= ./logs
 defines = XCELIUM
-verb 	= UVM_MEDIUM
+verb 	= UVM_LOW
 
 compile_switches = -f list.f -l ${logs}/comp.log +define+${defines}+ -access +rwc -timescale 1ns/1ps -sv
  
