@@ -15,7 +15,7 @@ class ram_port0_rd_seq extends ram_port0_base_seq;
     super.new(name);
   endfunction
 
-  constraint read_c {web0 == 1; csb0 ==0;};
+  constraint read_c {web0 == 1; csb0 == 0;}
 
   virtual task body();
       req=ram_port0_sequence_item::type_id::create("req");
