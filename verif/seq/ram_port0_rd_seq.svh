@@ -19,7 +19,7 @@ class ram_port0_rd_seq extends ram_port0_base_seq;
 
   virtual task body();
       req=ram_port0_sequence_item::type_id::create("req");
-      req.randomize() with {read_c}; 
+      req.randomize(); 
       start_item(req);
       req.print(uvm_default_line_printer);
       finish_item(req);
