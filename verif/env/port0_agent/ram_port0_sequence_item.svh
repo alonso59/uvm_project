@@ -27,7 +27,5 @@ class ram_port0_sequence_item extends uvm_sequence_item;
     super.new(name);
   endfunction
   
-  constraint csb0_c;
-  constraint web0_c;
   
 endclass:ram_port0_sequence_item
