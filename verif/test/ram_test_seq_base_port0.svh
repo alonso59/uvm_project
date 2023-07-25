@@ -21,7 +21,7 @@ class ram_test_seq_base_port0 extends ram_base_test;
     virtual task run_phase(uvm_phase phase);
         phase.raise_objection(this);
         #1us;
-        repeat(10)
+        repeat(100)
             begin
                 #500ns;
                 seq0_wr = ram_port0_wr_seq::type_id::create("seq0_wr");
